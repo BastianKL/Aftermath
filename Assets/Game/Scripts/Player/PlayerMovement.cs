@@ -110,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded;
     private bool _isRunning;
     private float _targetHeight;
+    private bool viewBobbingEnabled = true;
 
     [Header("Rolling")]
     [SerializeField] private float rollSpeed = 12f;
@@ -566,8 +567,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetViewBobbing(bool enabled)
+    {
+        viewBobbingEnabled = enabled;
+    }
+
     private void HandleViewbobbing()
     {
+        if (!viewBobbingEnabled) return;
         if (!_isGrounded && wasGroundedLastFrame)
         {
             isJumping = true;

@@ -18,6 +18,10 @@ public class PlayerHealth : MonoBehaviour
     public UnityEvent<float, float> OnHealthChanged; // (currentHealth, maxHealth)
     public UnityEvent OnDeath;
 
+    private bool systemEnabled = true;
+    public void SetEnabled(bool enabled) => systemEnabled = enabled;
+    //
+
     private void Start()
     {
         currentHealth = maxHealth;

@@ -28,6 +28,10 @@ public class PlayerStamina : MonoBehaviour
     public UnityEvent OnExhausted;
     public UnityEvent OnExhaustionRecovered;
 
+    private bool systemEnabled = true;
+    public void SetEnabled(bool enabled) => systemEnabled = enabled;
+    //
+
     private void Start()
     {
         currentStamina = maxStamina;

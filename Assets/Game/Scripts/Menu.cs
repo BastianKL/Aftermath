@@ -25,6 +25,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private float fadeInDuration = 2f;
     [SerializeField] private float imageHoldDuration = 2f;
 
+    public GameObject creditsPanel;
+    public GameObject previousMenu;
+
     void Start()
     {
         // Completely disable video at start
@@ -199,5 +202,16 @@ public class Menu : MonoBehaviour
     {
         settingsPanel.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+
+    public void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+        pauseMenu.SetActive(false); // or main menu panel
+    }
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+        pauseMenu.SetActive(true); // or main menu panel
     }
 }
