@@ -131044,6 +131044,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95973667328471543, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 112314140371733307, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: displayDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 112314140371733307, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: movementThreshold
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 276340340495144361, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -131124,6 +131136,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 699892838646002515, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 970
+      objectReference: {fileID: 0}
+    - target: {fileID: 699892838646002515, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 752636813525320199, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_text
+      value: "While looking at certain walls, jump onto them, \nto then quickly move
+        backwards and jump at the same time, \nto wall jump"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059828884489757697, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059828884489757697, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059828884489757697, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059828884489757697, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441085193027399064, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289443624213652751, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389487967286599756, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509439107506915732, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4627904414882707371, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
       propertyPath: playerStamina
       value: 
@@ -131132,6 +131189,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1632485758}
+    - target: {fileID: 5030723971703522923, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5057790999652459911, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -131143,6 +131204,57 @@ PrefabInstance:
     - target: {fileID: 6033535891667145215, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010476037549673001, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_text
+      value: 'Hold WASD to fly in the direction you are looking, crouch to fly straight
+        down.
+
+        Be wary of health when outside.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096517043290305547, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371007511835694774, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371007511835694774, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996549798849502030, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996549798849502030, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996549798849502030, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7996549798849502030, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999055914392358841, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999055914392358841, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999055914392358841, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7999055914392358841, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8702814228142801021, guid: 9e4736314eeef8e499ddade8f44db45f, type: 3}
       propertyPath: m_Name
@@ -137152,6 +137264,10 @@ PrefabInstance:
     - target: {fileID: 4233811278024604164, guid: 43498cb3cb9e1cd4a957085b0ad23e73, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042411089013295011, guid: 43498cb3cb9e1cd4a957085b0ad23e73, type: 3}
+      propertyPath: m_CastShadows
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7221619723059191935, guid: 43498cb3cb9e1cd4a957085b0ad23e73, type: 3}
       propertyPath: m_LocalPosition.x
