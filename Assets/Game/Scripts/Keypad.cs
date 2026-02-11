@@ -1,16 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using TMPro;
 
 public class Keypad : MonoBehaviour
 {
-    [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI codeDisplayText;
-    [SerializeField] private Button[] digitButtons;
-    [SerializeField] private Button enterButton;
-    [SerializeField] private InputActionReference escapeAction;
+    [Header("References")]
+    [SerializeField] private TextMeshPro codeDisplayText;
 
     [Header("Keypad Settings")]
     [SerializeField] private string correctCode = "1234";
@@ -21,22 +16,20 @@ public class Keypad : MonoBehaviour
 
     private string _enteredCode = "";
 
-    private void Awake()
-    {
-        for (int i = 0; i < digitButtons.Length; i++)
-        {
-            int captured = i;
-            digitButtons[i].onClick.AddListener(() => AddDigit(captured.ToString()));
-        }
-        enterButton.onClick.AddListener(CheckCode);
-        UpdateDisplay();
-    }
-
     public void AddDigit(string digit)
     {
         if (_enteredCode.Length < codeLength)
         {
             _enteredCode += digit;
+            UpdateDisplay();
+        }
+    }
+
+    public void Backspace()
+    {
+        if (_enteredCode.Length > 0)
+        {
+            _enteredCode = _enteredCode.Substring(0, _enteredCode.Length - 1);
             UpdateDisplay();
         }
     }
@@ -49,19 +42,11 @@ public class Keypad : MonoBehaviour
         }
         _enteredCode = "";
         UpdateDisplay();
-        HideKeypad();
     }
 
     private void UpdateDisplay()
     {
         codeDisplayText.text = _enteredCode.PadRight(codeLength, '_');
-    }
-
-    public void HideKeypad()
-    {
-        gameObject.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     public void SetCode(string code, UnityEvent onCorrect)
@@ -70,26 +55,5 @@ public class Keypad : MonoBehaviour
         onCorrectCodeEntered = onCorrect;
         _enteredCode = "";
         UpdateDisplay();
-    }
-
-    private void OnEnable()
-    {
-        if (escapeAction != null)
-            escapeAction.action.performed += OnEscape;
-        if (escapeAction != null)
-            escapeAction.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        if (escapeAction != null)
-            escapeAction.action.performed -= OnEscape;
-        if (escapeAction != null)
-            escapeAction.action.Disable();
-    }
-
-    private void OnEscape(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        HideKeypad();
     }
 }

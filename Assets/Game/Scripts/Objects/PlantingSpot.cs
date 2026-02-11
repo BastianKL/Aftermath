@@ -18,6 +18,7 @@ public class PlantingSpot : MonoBehaviour, Interactable
             player.RemoveSeed();
             Instantiate(plantedPrefab, transform.position, transform.rotation);
             isOccupied = true;
+            PlantingManager.Instance?.RegisterPlanting(spotType);
         }
         else if (spotType == SpotType.Sapling)
         {
@@ -27,6 +28,7 @@ public class PlantingSpot : MonoBehaviour, Interactable
                 player.RemoveHeldItem();
                 Instantiate(plantedPrefab, transform.position, transform.rotation);
                 isOccupied = true;
+                PlantingManager.Instance?.RegisterPlanting(spotType);
             }
         }
     }
