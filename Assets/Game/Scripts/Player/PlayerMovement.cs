@@ -863,4 +863,79 @@ public class PlayerMovement : MonoBehaviour
     {
         _controlsEnabled = enabled;
     }
+
+    // Returns the currently held item (prefers left, then right, then both)
+    public GameObject GetHeldItem()
+    {
+        // If both hands are holding the same item, return that
+        if (heldLeftItem != null && heldLeftItem == heldRightItem)
+            return heldLeftItem.gameObject;
+        // Otherwise, prefer left, then right
+        if (heldLeftItem != null)
+            return heldLeftItem.gameObject;
+        if (heldRightItem != null)
+            return heldRightItem.gameObject;
+        return null;
+    }
+
+    // Removes and destroys the currently held item
+    public void RemoveHeldItem()
+    {
+        // If both hands are holding the same item
+        if (heldLeftItem != null && heldLeftItem == heldRightItem)
+        {
+            Destroy(heldLeftItem.gameObject);
+            heldLeftItem = null;
+            heldRightItem = null;
+        }
+        else if (heldLeftItem != null)
+        {
+            Destroy(heldLeftItem.gameObject);
+            heldLeftItem = null;
+        }
+        else if (heldRightItem != null)
+        {
+            Destroy(heldRightItem.gameObject);
+            heldRightItem = null;
+        }
+    }
+
+    private int seedCount = 0;
+    [SerializeField] private TextMeshProUGUI seedCountText; // Assign in Inspector
+
+    public void AddSeed()
+    {
+        seedCount++;
+        UpdateSeedUI();
+    }
+
+    public void RemoveSeed()
+    {
+        if (seedCount > 0)
+            seedCount--;
+        UpdateSeedUI();
+    }
+
+    public bool HasSeed()
+    {
+        return seedCount > 0;
+    }
+
+    private void UpdateSeedUI()
+    {
+        if (seedCountText != null)
+            seedCountText.text = seedCount > 0 ? $"Seeds x{seedCount}" : "";
+    }
+
+    [SerializeField] private GameObject seedPrefab; // Assign in Inspector
+
+    public void DropSeed()
+    {
+        if (seedCount > 0)
+        {
+            seedCount--;
+            Instantiate(seedPrefab, dropPoint.position, dropPoint.rotation);
+            UpdateSeedUI();
+        }
+    }
 }

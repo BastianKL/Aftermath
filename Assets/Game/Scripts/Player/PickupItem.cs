@@ -22,6 +22,13 @@ public class PickupItem : MonoBehaviour, Interactable
     {
         if (_cachedPlayer == null) return;
 
+        if (gameObject.CompareTag("Seed"))
+        {
+            _cachedPlayer.AddSeed();
+            Destroy(gameObject);
+            return;
+        }
+
         if (unlocksTripleJump)
         {
             _cachedPlayer.UnlockTripleJump();

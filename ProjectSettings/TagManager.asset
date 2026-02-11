@@ -11,6 +11,16 @@ TagManager:
   - SmallItem
   - Climbable
   - Sticky
+  - Soft Plastic
+  - Hard Plastic
+  - Wood
+  - Metal
+  - Glass
+  - Organic
+  - Electronics
+  - Paper
+  - Seed
+  - Sapling
   layers:
   - Default
   - TransparentFX

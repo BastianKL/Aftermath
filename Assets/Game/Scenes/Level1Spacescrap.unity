@@ -43095,6 +43095,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  allowedTags:
+  - Hard Plastic
 --- !u!65 &768558144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119122,7 +119124,7 @@ GameObject:
   - component: {fileID: 1175588413712504921}
   m_Layer: 3
   m_Name: Box (10)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119423,6 +119425,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1620387655}
     - target: {fileID: 6390620839354692361, guid: 58e5c0eb0426d1f488b52eb2ee435397, type: 3}
+      propertyPath: allowedTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390620839354692361, guid: 58e5c0eb0426d1f488b52eb2ee435397, type: 3}
+      propertyPath: 'allowedTags.Array.data[0]'
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390620839354692361, guid: 58e5c0eb0426d1f488b52eb2ee435397, type: 3}
+      propertyPath: allowedItemNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390620839354692361, guid: 58e5c0eb0426d1f488b52eb2ee435397, type: 3}
       propertyPath: onThresholdReached.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 827572201}
@@ -119436,7 +119450,7 @@ PrefabInstance:
       objectReference: {fileID: 1620387655}
     - target: {fileID: 7191101411317064388, guid: 58e5c0eb0426d1f488b52eb2ee435397, type: 3}
       propertyPath: m_VersionIndex
-      value: 2494
+      value: 2497
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -119876,7 +119890,7 @@ GameObject:
   - component: {fileID: 7688929409795049994}
   m_Layer: 3
   m_Name: TutorialBox (1)
-  m_TagString: Untagged
+  m_TagString: Hard Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120078,7 +120092,7 @@ GameObject:
   - component: {fileID: 1311490086621385027}
   m_Layer: 3
   m_Name: Box (19)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120594,7 +120608,7 @@ GameObject:
   - component: {fileID: 5346084752781403186}
   m_Layer: 3
   m_Name: Box (2)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121102,7 +121116,7 @@ GameObject:
   - component: {fileID: 7198491985330967860}
   m_Layer: 3
   m_Name: Box (5)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121360,7 +121374,7 @@ GameObject:
   - component: {fileID: 5390537985551216147}
   m_Layer: 3
   m_Name: Box (8)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121475,7 +121489,7 @@ GameObject:
   - component: {fileID: 2060445751325706820}
   m_Layer: 3
   m_Name: Box (3)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121714,7 +121728,7 @@ GameObject:
   - component: {fileID: 4001978620899120296}
   m_Layer: 3
   m_Name: Box (4)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121874,7 +121888,7 @@ GameObject:
   - component: {fileID: 8979822826326824294}
   m_Layer: 3
   m_Name: Box (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122065,7 +122079,7 @@ GameObject:
   - component: {fileID: 5165367059483981018}
   m_Layer: 3
   m_Name: Box (9)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122134,7 +122148,7 @@ GameObject:
   - component: {fileID: 5418100345337456676}
   m_Layer: 3
   m_Name: Box (12)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122288,7 +122302,7 @@ GameObject:
   - component: {fileID: 8218087494994047919}
   m_Layer: 3
   m_Name: TutorialBox (2)
-  m_TagString: Untagged
+  m_TagString: Hard Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122336,7 +122350,7 @@ GameObject:
   - component: {fileID: 416301595145787279}
   m_Layer: 3
   m_Name: Box (18)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122620,7 +122634,7 @@ GameObject:
   - component: {fileID: 7752564440204261458}
   m_Layer: 3
   m_Name: TutorialBox
-  m_TagString: Untagged
+  m_TagString: Hard Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122745,7 +122759,7 @@ GameObject:
   - component: {fileID: 4193468959948881689}
   m_Layer: 3
   m_Name: Box (17)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122830,7 +122844,7 @@ GameObject:
   - component: {fileID: 871498345077021066}
   m_Layer: 3
   m_Name: Box (20)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122894,7 +122908,7 @@ GameObject:
   - component: {fileID: 374544091587011303}
   m_Layer: 3
   m_Name: Box (11)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123031,7 +123045,7 @@ GameObject:
   - component: {fileID: 167942656555280784}
   m_Layer: 3
   m_Name: Box (14)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123082,7 +123096,7 @@ GameObject:
   - component: {fileID: 7608099495124540385}
   m_Layer: 3
   m_Name: Box (13)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125818,7 +125832,7 @@ GameObject:
   - component: {fileID: 3963693345502108999}
   m_Layer: 3
   m_Name: Box (15)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126294,7 +126308,7 @@ GameObject:
   - component: {fileID: 1367420897910728603}
   m_Layer: 3
   m_Name: Box (7)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126504,7 +126518,7 @@ GameObject:
   - component: {fileID: 7896731922183934265}
   m_Layer: 3
   m_Name: Box (6)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126780,7 +126794,7 @@ GameObject:
   - component: {fileID: 5474219216075643852}
   m_Layer: 3
   m_Name: Box (16)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
