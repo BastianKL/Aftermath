@@ -76,6 +76,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform dropPoint;
     [SerializeField] private float throwPower = 2f;
 
+    [Header("Block Push")]
+    [SerializeField] private InputActionReference interactAction; // Assign your "E" action in Inspector
+
     [Header("Item UI")]
     [SerializeField] private TextMeshProUGUI dropInstructionText;
     [SerializeField] private string dropMessage = "Hold G + Left/Right Click to drop item";
@@ -209,6 +212,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateDropInstructionUI();
+
+        if (interactAction != null && interactAction.action.IsPressed())
+        {
+            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, 1.5f))
+            {
+                var block = hit.collider.GetComponent<MoveableBlock>();
+                if (block != null)
+                {
+                    block.TryPush(transform.position);
+                }
+            }
+        }
     }
 
     private void UpdateDropInstructionUI()
