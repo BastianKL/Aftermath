@@ -8,6 +8,7 @@ public class ButtonInteractable : MonoBehaviour, Interactable
 
     private Vector3 originalPosition;
     private bool isPressed = false;
+    private bool isLocked = false;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class ButtonInteractable : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (!isPressed)
+        if (!isPressed && !isLocked)
         {
             StartCoroutine(PressAnimation());
             ButtonPuzzleManager.Instance.OnButtonPressed(buttonIndex);
@@ -35,15 +36,30 @@ public class ButtonInteractable : MonoBehaviour, Interactable
             yield return null;
         }
         transform.localPosition = target;
-        yield return new WaitForSeconds(0.1f);
-        t = 0;
+    }
+
+    public void LockButton()
+    {
+        isLocked = true;
+    }
+
+    public void ResetButton()
+    {
+        isPressed = false;
+        isLocked = false;
+        StartCoroutine(ResetAnimation());
+    }
+
+    private System.Collections.IEnumerator ResetAnimation()
+    {
+        Vector3 start = transform.localPosition;
+        float t = 0;
         while (t < pressDuration)
         {
-            transform.localPosition = Vector3.Lerp(target, originalPosition, t / pressDuration);
+            transform.localPosition = Vector3.Lerp(start, originalPosition, t / pressDuration);
             t += Time.deltaTime;
             yield return null;
         }
         transform.localPosition = originalPosition;
-        isPressed = false;
     }
 }
