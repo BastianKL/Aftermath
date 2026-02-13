@@ -4,15 +4,34 @@ public class MoveableBlock : MonoBehaviour
 {
     [SerializeField] private float moveDistance = 1f;
     [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private Vector3 blockSize = new Vector3(1, 1, 1); // Set to match your block's collider size
+    [SerializeField] private LayerMask obstacleLayers; // Set in Inspector
+
     private bool isMoving = false;
 
-    // Called externally when player wants to push
     public void TryPush(Vector3 playerPosition)
     {
         if (isMoving) return;
         Vector3 pushDir = GetPushDirection(playerPosition);
         if (pushDir != Vector3.zero)
-            StartCoroutine(MoveBlock(pushDir));
+        {
+            // Check for obstacles before moving
+            Vector3 start = transform.position;
+            Vector3 end = start + pushDir * moveDistance;
+
+            // BoxCast to check if path is clear
+            if (!Physics.BoxCast(
+                start,
+                blockSize * 0.5f,
+                pushDir,
+                transform.rotation,
+                moveDistance,
+                obstacleLayers))
+            {
+                StartCoroutine(MoveBlock(pushDir));
+            }
+            // else: blocked, do not move
+        }
     }
 
     private Vector3 GetPushDirection(Vector3 playerPosition)
@@ -37,6 +56,29 @@ public class MoveableBlock : MonoBehaviour
             yield return null;
         }
         transform.position = end;
-        isMoving = false;
+
+        Collider[] hits = Physics.OverlapBox(
+            transform.position,
+            blockSize * 0.5f,
+            transform.rotation,
+            obstacleLayers);
+
+        bool overlappingOther = false;
+        foreach (var hit in hits)
+        {
+            if (hit.gameObject != gameObject) // Ignore self
+            {
+                overlappingOther = true;
+                break;
+            }
+        }
+
+        if (overlappingOther)
+        {
+            // Revert move if overlapping another object
+            transform.position = start;
+        }
+
+        isMoving = false; // <-- This line ensures the block can be moved again
     }
 }
