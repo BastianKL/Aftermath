@@ -92,14 +92,17 @@ public class ArrowPlatform : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    // Call these from the arrow button triggers or platform trigger
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             var cc = other.GetComponent<CharacterController>();
             if (cc != null)
+            {
                 playersOnPlatform.Add(cc);
+                var pm = other.GetComponent<PlayerMovement>();
+                if (pm != null) pm.SetOnMovingPlatform(true);
+            }
         }
     }
 
@@ -109,7 +112,11 @@ public class ArrowPlatform : MonoBehaviour
         {
             var cc = other.GetComponent<CharacterController>();
             if (cc != null)
+            {
                 playersOnPlatform.Remove(cc);
+                var pm = other.GetComponent<PlayerMovement>();
+                if (pm != null) pm.SetOnMovingPlatform(false);
+            }
         }
     }
 }

@@ -336,7 +336,7 @@ public class PlayerMovement : MonoBehaviour
         if (isInSpaceMode) return;
         if (playerStamina != null && playerStamina.IsExhausted()) return;
 
-        if (_isGrounded && jumpCount == 0)
+        if ((_isGrounded || _onMovingPlatform) && jumpCount == 0)
         {
             if (playerStamina != null && !playerStamina.UseStamina(playerStamina.jumpCost))
             {
@@ -954,4 +954,12 @@ public class PlayerMovement : MonoBehaviour
             UpdateSeedUI();
         }
     }
+
+    private bool _onMovingPlatform = false;
+
+    public void SetOnMovingPlatform(bool value)
+    {
+        _onMovingPlatform = value;
+    }
+
 }
