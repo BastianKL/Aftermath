@@ -188,12 +188,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        HandleCameraLook();
         if (!_controlsEnabled) return;
         if (isInSpaceMode)
         {
             HandleSpaceMovement();
             HandleSpaceDamage();
-            HandleCameraLook();
+
         }
         else
         {
