@@ -8,7 +8,7 @@ public class PlantingManager : MonoBehaviour
     public int SeedsPlanted { get; private set; }
     public int SaplingsPlanted { get; private set; }
 
-    public UnityEvent onThresholdReached; // Add this
+    public UnityEvent onThresholdReached;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlantingManager : MonoBehaviour
         else if (type == PlantingSpot.SpotType.Sapling)
             SaplingsPlanted++;
 
-        if (SeedsPlanted >= 5 && SaplingsPlanted >= 1)
+        if (SeedsPlanted >= 25 && SaplingsPlanted >= 15)
         {
             if (onThresholdReached != null)
                 onThresholdReached.Invoke();
