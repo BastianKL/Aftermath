@@ -1238,9 +1238,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorSlider, Assembly-CSharp
-        m_MethodName: RequestOpen
+      - m_Target: {fileID: 522802714}
+        m_TargetAssemblyTypeName: Level2Transition, Assembly-CSharp
+        m_MethodName: CheckLights
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1358,7 +1358,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 100000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1420,12 +1420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157207112}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -12.87, y: 24, z: -10.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 522802713}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &157207115
 MonoBehaviour:
@@ -3267,12 +3267,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432432459}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.38268343, y: 0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 12.87, y: -9.72979, z: 24.211334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 522802713}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433268366
 GameObject:
@@ -5602,10 +5602,7 @@ Transform:
   m_LocalPosition: {x: -12.87, y: 24, z: -10.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 157207114}
-  - {fileID: 432432461}
-  - {fileID: 991765812}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &522802714
@@ -5625,23 +5622,7 @@ MonoBehaviour:
   - {fileID: 1789263605}
   - {fileID: 1585560680}
   - {fileID: 1931624378265035605}
-  levelTransition: {fileID: 906259769}
-  onAllLightsOff:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 906259769}
-        m_TargetAssemblyTypeName: LevelTransition, Assembly-CSharp
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  canTransition: 1
+  transitionCollider: {fileID: 906259770}
 --- !u!1 &541634157
 GameObject:
   m_ObjectHideFlags: 0
@@ -7122,9 +7103,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorSlider, Assembly-CSharp
-        m_MethodName: RequestOpen
+      - m_Target: {fileID: 522802714}
+        m_TargetAssemblyTypeName: Level2Transition, Assembly-CSharp
+        m_MethodName: CheckLights
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8615,7 +8596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906259768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5802391db6141fd48b7520b2c627641b, type: 3}
   m_Name: 
@@ -8646,7 +8627,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -9859,12 +9840,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991765809}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.38268343, y: 0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 12.87, y: -9.72979, z: 24.211334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 522802713}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &994199561
 GameObject:
@@ -10795,9 +10776,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorSlider, Assembly-CSharp
-        m_MethodName: RequestOpen
+      - m_Target: {fileID: 522802714}
+        m_TargetAssemblyTypeName: Level2Transition, Assembly-CSharp
+        m_MethodName: CheckLights
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38092,9 +38073,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorSlider, Assembly-CSharp
-        m_MethodName: RequestOpen
+      - m_Target: {fileID: 522802714}
+        m_TargetAssemblyTypeName: Level2Transition, Assembly-CSharp
+        m_MethodName: CheckLights
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43452,7 +43433,7 @@ Transform:
   m_GameObject: {fileID: 7795063144398892031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.4, y: 3.28, z: -72.07}
+  m_LocalPosition: {x: -26.4, y: 3.2, z: -72.07}
   m_LocalScale: {x: 100, y: 1.6663, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44685,6 +44666,9 @@ SceneRoots:
   - {fileID: 522802713}
   - {fileID: 2013410475}
   - {fileID: 498987632}
+  - {fileID: 157207114}
+  - {fileID: 432432461}
+  - {fileID: 991765812}
   - {fileID: 2099274225}
   - {fileID: 34539760}
   - {fileID: 1810702620}
