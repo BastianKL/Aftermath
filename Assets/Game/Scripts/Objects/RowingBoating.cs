@@ -13,6 +13,7 @@ public class RowingBoating : MonoBehaviour, Interactable
     public float linearDrag = 2f;
     public float angularDrag = 3f;
 
+
     private Rigidbody rb;
 
     private PlayerMovement seatedPlayerMove;
@@ -71,6 +72,9 @@ public class RowingBoating : MonoBehaviour, Interactable
         seatedPlayer.SetParent(seatPoint, true);
         seatedPlayer.localPosition = Vector3.zero;
         seatedPlayer.localRotation = Quaternion.identity;
+        Vector3 e = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(e.x, e.y, 0f);
+        rb.angularVelocity = Vector3.zero;
     }
 
     private void Exit()
