@@ -27,6 +27,11 @@ public class RowingBoating : MonoBehaviour, Interactable
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        // Remove rotation constraints for realistic floating
+        // rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+        // Lower center of mass for stability
+        rb.centerOfMass = new Vector3(0, -0.5f, 0); // Adjust Y as needed
     }
 
     public void Interact()
@@ -49,8 +54,8 @@ public class RowingBoating : MonoBehaviour, Interactable
         var kb = Keyboard.current;
         if (kb == null) return;
 
-        if (kb[Key.A].isPressed) TryLeft();
-        if (kb[Key.D].isPressed) TryRight();
+        if (kb[Key.D].isPressed) TryLeft();
+        if (kb[Key.A].isPressed) TryRight();
         if (kb[Key.W].isPressed) TryForward();
 
         if (kb[Key.S].isPressed)

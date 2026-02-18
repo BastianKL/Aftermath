@@ -214,18 +214,24 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateDropInstructionUI();
 
-        if (interactAction != null && interactAction.action.IsPressed())
-        {
-            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, 1.5f))
-            {
-                var block = hit.collider.GetComponent<MoveableBlock>();
-                if (block != null)
-                {
-                    block.TryPush(transform.position);
-                }
-            }
-        }
+      //  if (interactAction != null && interactAction.action.IsPressed())
+       // {
+         //   Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+           // if (Physics.Raycast(ray, out RaycastHit hit, 1.5f))
+            //{
+              //  var block = hit.collider.GetComponent<MoveableBlock>();
+               // if (block != null)
+                //{
+                  //  block.TryPush(transform.position);
+                //}
+            //}
+        //}
+    }
+
+    public void RemoveHeldItemReference(PickupItem item)
+    {
+        if (heldLeftItem == item) heldLeftItem = null;
+        if (heldRightItem == item) heldRightItem = null;
     }
 
     private void UpdateDropInstructionUI()

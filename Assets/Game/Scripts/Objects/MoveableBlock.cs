@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveableBlock : MonoBehaviour
+public class MoveableBlock : MonoBehaviour, Interactable
 {
     [SerializeField] private float moveDistance = 1f;
     [SerializeField] private float moveSpeed = 3f;
@@ -9,13 +9,20 @@ public class MoveableBlock : MonoBehaviour
 
     private bool isMoving = false;
 
+    // Called by InteractionController when player presses E
+    public void Interact()
+    {
+        var player = FindObjectOfType<PlayerMovement>();
+        if (player != null)
+            TryPush(player.transform.position);
+    }
+
     public void TryPush(Vector3 playerPosition)
     {
         if (isMoving) return;
         Vector3 pushDir = GetPushDirection(playerPosition);
         if (pushDir != Vector3.zero)
         {
-            // Check for obstacles before moving
             Vector3 start = transform.position;
             Vector3 end = start + pushDir * moveDistance;
 
@@ -30,7 +37,6 @@ public class MoveableBlock : MonoBehaviour
             {
                 StartCoroutine(MoveBlock(pushDir));
             }
-            // else: blocked, do not move
         }
     }
 
@@ -66,7 +72,7 @@ public class MoveableBlock : MonoBehaviour
         bool overlappingOther = false;
         foreach (var hit in hits)
         {
-            if (hit.gameObject != gameObject) // Ignore self
+            if (hit.gameObject != gameObject)
             {
                 overlappingOther = true;
                 break;
@@ -79,6 +85,6 @@ public class MoveableBlock : MonoBehaviour
             transform.position = start;
         }
 
-        isMoving = false; // <-- This line ensures the block can be moved again
+        isMoving = false;
     }
 }

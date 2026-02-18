@@ -33030,7 +33030,7 @@ GameObject:
   - component: {fileID: 981967788}
   - component: {fileID: 981967787}
   - component: {fileID: 981967786}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: MoveableCube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51886,7 +51886,7 @@ GameObject:
   - component: {fileID: 1627913873}
   - component: {fileID: 1627913872}
   - component: {fileID: 1627913871}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: MoveableCube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
