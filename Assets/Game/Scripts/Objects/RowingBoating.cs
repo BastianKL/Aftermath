@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class RowingBoating : MonoBehaviour, Interactable
 {
     public Transform seatPoint;
+    public BoatCrateRack rack;
 
     public float strokeForce = 6f;
     public float turnTorque = 2.5f;
@@ -13,9 +14,7 @@ public class RowingBoating : MonoBehaviour, Interactable
     public float linearDrag = 2f;
     public float angularDrag = 3f;
 
-
     private Rigidbody rb;
-
     private PlayerMovement seatedPlayerMove;
     private Transform seatedPlayer;
     private CharacterController seatedCC;
@@ -27,21 +26,25 @@ public class RowingBoating : MonoBehaviour, Interactable
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        // Remove rotation constraints for realistic floating
-        // rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-        // Lower center of mass for stability
-        rb.centerOfMass = new Vector3(0, -0.5f, 0); // Adjust Y as needed
+        rb.centerOfMass = new Vector3(0, -0.5f, 0);
+        if (rack == null) rack = GetComponentInChildren<BoatCrateRack>();
     }
 
     public void Interact()
     {
+        var player = FindObjectOfType<PlayerMovement>();
+        if (player == null) return;
+
+        if (player.GetHeldItem() != null)
+        {
+            if (rack != null) rack.TryStoreFromPlayer(player);
+            return;
+        }
+
         if (seatPoint == null) return;
 
-        if (seatedPlayer == null)
-            TryEnter();
-        else
-            Exit();
+        if (seatedPlayer == null) TryEnter(player);
+        else Exit();
     }
 
     void FixedUpdate()
@@ -62,11 +65,8 @@ public class RowingBoating : MonoBehaviour, Interactable
             rb.AddForce(-transform.forward * reverseForce, ForceMode.Force);
     }
 
-    private void TryEnter()
+    private void TryEnter(PlayerMovement player)
     {
-        var player = FindObjectOfType<PlayerMovement>();
-        if (player == null) return;
-
         seatedPlayerMove = player;
         seatedPlayer = player.transform;
         seatedCC = player.GetComponent<CharacterController>();
@@ -77,6 +77,7 @@ public class RowingBoating : MonoBehaviour, Interactable
         seatedPlayer.SetParent(seatPoint, true);
         seatedPlayer.localPosition = Vector3.zero;
         seatedPlayer.localRotation = Quaternion.identity;
+
         Vector3 e = transform.eulerAngles;
         transform.eulerAngles = new Vector3(e.x, e.y, 0f);
         rb.angularVelocity = Vector3.zero;
@@ -87,9 +88,7 @@ public class RowingBoating : MonoBehaviour, Interactable
         if (seatedPlayer == null) return;
 
         seatedPlayer.SetParent(null, true);
-
-        Vector3 exitPos = transform.position + transform.right * 1.2f + Vector3.up * 0.2f;
-        seatedPlayer.position = exitPos;
+        seatedPlayer.position = transform.position + transform.right * 1.2f + Vector3.up * 0.2f;
 
         if (seatedCC != null) seatedCC.enabled = true;
         if (seatedPlayerMove != null) seatedPlayerMove.SetControlsEnabled(true);

@@ -170,7 +170,13 @@ public class PlayerMovement : MonoBehaviour
         rightMouseAction.action.performed += OnRightMouse;
         rollAction.action.performed += OnRoll;
     }
+    public void RemoveHeldItemReference(PickupItem item)
+    {
+        if (item == null) return;
 
+        if (heldLeftItem == item) heldLeftItem = null;
+        if (heldRightItem == item) heldRightItem = null;
+    }
     private void OnDisable()
     {
         moveAction.action.performed -= StoreMovementInput;
@@ -228,11 +234,6 @@ public class PlayerMovement : MonoBehaviour
         //}
     }
 
-    public void RemoveHeldItemReference(PickupItem item)
-    {
-        if (heldLeftItem == item) heldLeftItem = null;
-        if (heldRightItem == item) heldRightItem = null;
-    }
 
     private void UpdateDropInstructionUI()
     {
