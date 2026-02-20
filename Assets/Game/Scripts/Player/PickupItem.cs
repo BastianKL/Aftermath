@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class PickupItem : MonoBehaviour, Interactable
 {
     public HandType handType; public GameObject visualEffect;
@@ -7,6 +8,10 @@ public class PickupItem : MonoBehaviour, Interactable
     public bool IsHeld { get; private set; }
     public bool unlocksDoubleJump = false;
     public bool unlocksTripleJump = false;
+
+    public bool IsStoredOnBoat { get; set; }
+    public BoatCrateRack StoredRack { get; set; }
+    public int StoredSlot { get; set; } = -1;
 
     private PlayerMovement _cachedPlayer;
 
@@ -21,6 +26,11 @@ public class PickupItem : MonoBehaviour, Interactable
     public void Interact()
     {
         if (_cachedPlayer == null) return;
+
+        if (IsStoredOnBoat && StoredRack != null && StoredSlot >= 0)
+        {
+            StoredRack.Unstore(StoredSlot);
+        }
 
         if (gameObject.CompareTag("Seed"))
         {
