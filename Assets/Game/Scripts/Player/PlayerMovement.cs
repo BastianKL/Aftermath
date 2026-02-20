@@ -341,22 +341,21 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         if (isInSpaceMode) return;
-        if (playerStamina != null && playerStamina.IsExhausted()) return;
 
         if ((_isGrounded || _onMovingPlatform) && jumpCount == 0)
         {
-            if (playerStamina != null && !playerStamina.UseStamina(playerStamina.jumpCost))
+            if (playerStamina != null)
             {
-                return; // Not enough stamina
+                playerStamina.UseStamina(playerStamina.jumpCost);
             }
             _verticalVelocity = jumpForce;
             jumpCount++;
         }
         else if (isClimbingWall)
         {
-            if (playerStamina != null && !playerStamina.UseStamina(playerStamina.jumpCost))
+            if (playerStamina != null)
             {
-                return;
+                playerStamina.UseStamina(playerStamina.jumpCost);
             }
             Vector3 jumpDir = (wallNormal * 0.7f + Vector3.up * 0.3f).normalized;
             _characterController.Move(jumpDir * wallJumpForce * Time.deltaTime);
@@ -366,9 +365,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (jumpCount < maxJumps)
         {
-            if (playerStamina != null && !playerStamina.UseStamina(playerStamina.jumpCost))
+            if (playerStamina != null)
             {
-                return;
+                playerStamina.UseStamina(playerStamina.jumpCost);
             }
             _verticalVelocity = jumpForce;
             jumpCount++;
