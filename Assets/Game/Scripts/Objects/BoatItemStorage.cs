@@ -23,7 +23,7 @@ public class BoatItemStorage : MonoBehaviour
             Random.Range(0, areaSize.y),
             Random.Range(-areaSize.z / 2, areaSize.z / 2)
         );
-        item.transform.SetParent(itemArea);
+        item.transform.SetParent(itemArea, true);
         item.transform.localPosition = localPos;
         item.transform.localRotation = Quaternion.identity;
         item.transform.localScale = Vector3.one;
@@ -40,6 +40,13 @@ public class BoatItemStorage : MonoBehaviour
         foreach (var col in item.GetComponentsInChildren<Collider>())
             col.enabled = true;
 
+        // Remove from BoatItemMover if present
+        var mover = GetComponentInParent<BoatItemMover>();
+        if (mover != null && rb != null)
+        {
+            mover.RemoveItemRigidbody(rb);
+        }
+
         item.SetHeld(false);
         return true;
     }
@@ -49,7 +56,7 @@ public class BoatItemStorage : MonoBehaviour
         if (storedItems.Contains(item))
         {
             storedItems.Remove(item);
-            item.transform.SetParent(null);
+            item.transform.SetParent(null, true);
 
             // Re-enable floaters so the item floats again
             foreach (var floater in item.GetComponentsInChildren<Floater>())

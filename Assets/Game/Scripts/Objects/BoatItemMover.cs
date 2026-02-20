@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class BoatItemMover : MonoBehaviour
 {
-    private List<Rigidbody> itemsOnBoat = new List<Rigidbody>();
+    public List<Rigidbody> itemsOnBoat = new List<Rigidbody>();
     private Vector3 lastBoatPosition;
     public Transform boatRoot; // Assign the boat's root transform in Inspector
 
@@ -19,7 +19,8 @@ public class BoatItemMover : MonoBehaviour
         Vector3 delta = boatRoot.position - lastBoatPosition;
         foreach (var rb in itemsOnBoat)
         {
-            if (rb != null && !rb.isKinematic)
+            // Only move items that are not parented to the boat and are not kinematic
+            if (rb != null && !rb.isKinematic && rb.transform.parent != boatRoot)
             {
                 rb.MovePosition(rb.position + delta);
             }
@@ -52,5 +53,12 @@ public class BoatItemMover : MonoBehaviour
                 rb.isKinematic = false;
             }
         }
+    }
+
+    // Helper for BoatItemStorage to remove rigidbodies
+    public void RemoveItemRigidbody(Rigidbody rb)
+    {
+        if (rb != null)
+            itemsOnBoat.Remove(rb);
     }
 }
