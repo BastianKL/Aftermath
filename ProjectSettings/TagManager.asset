@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Keypad
-  - Backpack
-  - Satchel
-  - Belt
   - SmallItem
   - Climbable
   - Sticky
@@ -21,6 +18,9 @@ TagManager:
   - Paper
   - Seed
   - Sapling
+  - Rest
+  - Danger
+  - Tekstil
   layers:
   - Default
   - TransparentFX
