@@ -28,7 +28,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -199,6 +199,15 @@
                     "name": "EnterBoat",
                     "type": "Button",
                     "id": "2119d893-ed0c-4cb3-b8d4-89ba96ebfaae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseItem",
+                    "type": "Button",
+                    "id": "be8fb5be-9d4d-4b93-b324-cd1b999ed03b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -819,6 +828,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "EnterBoat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fe1e5a4-d3d8-4e18-8563-582116cb1fae",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
