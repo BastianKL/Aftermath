@@ -15,9 +15,18 @@ public class Level2Transition : MonoBehaviour
     // Call this method whenever a light is turned off
     public void CheckLights()
     {
+        if (lights == null || lights.Length == 0)
+        {
+            Debug.LogWarning("Lights array is not assigned in Level2Transition.");
+            return;
+        }
+
         int offCount = 0;
+
         foreach (var lightObj in lights)
         {
+            if (lightObj == null) continue;
+
             var lightComp = lightObj.GetComponent<Light>();
             if (lightComp != null && !lightComp.enabled)
                 offCount++;
