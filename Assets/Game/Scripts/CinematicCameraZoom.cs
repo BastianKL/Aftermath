@@ -34,6 +34,10 @@ public class CinematicCameraZoom : MonoBehaviour
         {
             playerMovement.SetControlsEnabled(false);
         }
+
+        // Unlock cursor at start (optional, for cinematic)
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void StartZoomToPlayer()
@@ -70,6 +74,10 @@ public class CinematicCameraZoom : MonoBehaviour
         {
             playerMovement.SetControlsEnabled(true);
         }
+
+        // Lock and hide the cursor for gameplay
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         // Make camera follow player
         _camera.transform.SetParent(playerEyesPosition);

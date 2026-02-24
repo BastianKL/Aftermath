@@ -41,6 +41,15 @@ public class SequentialTutorial : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // Optionally check for player tag
+        if (other.CompareTag("Player"))
+        {
+            StartTutorial();
+        }
+    }
+
     public void StartTutorial()
     {
         // Activate the panel FIRST so coroutines can run

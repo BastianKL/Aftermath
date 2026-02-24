@@ -2590,7 +2590,7 @@ MonoBehaviour:
   nextSceneName: Level3Forest
   playerTag: Player
   fadeImage: {fileID: 8407112390976932621}
-  fadeDuration: 1
+  fadeDuration: 3
   playVideo: 0
   videoPlayer: {fileID: 1289911101}
   videoRenderer: {fileID: 917256511077076657}
@@ -4212,11 +4212,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289911100}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ef8c69ab4bbc5d744837360b9fe92cc6, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 76960523e336fc64ea38dcbeb49ec6ca, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 5750aeaae8b4c2244a4aa06186444a41, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 9b9bdde6468b17f4982f42d3a7c6c928, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -4234,7 +4234,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -12407,7 +12407,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6987495352954972817}
         m_TargetAssemblyTypeName: PlayerDeathHandler, Assembly-CSharp
         m_MethodName: OnPlayerDeath
         m_Mode: 1
@@ -14571,6 +14571,8 @@ RectTransform:
   - {fileID: 3867238121078359102}
   - {fileID: 8862174042446749160}
   - {fileID: 7485734888441248548}
+  - {fileID: 7707208992462442722}
+  - {fileID: 3755887512870612601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14606,29 +14608,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 5750aeaae8b4c2244a4aa06186444a41, type: 2}
+  m_Texture: {fileID: 8400000, guid: 9b9bdde6468b17f4982f42d3a7c6c928, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
---- !u!114 &2083939142247591109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2710840641653652233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f488f33467a30479e9f10add021f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerTimer
-  timerText: {fileID: 3648692562909102923}
-  timerUI: {fileID: 2649889789898231500}
-  completionUI: {fileID: 2280619992350770278}
-  completionTimeText: {fileID: 3737710241087713600}
 --- !u!1 &2088762258459667383
 GameObject:
   m_ObjectHideFlags: 0
@@ -15385,7 +15371,7 @@ GameObject:
   - component: {fileID: 4164943791747633820}
   - component: {fileID: 999511743998429511}
   m_Layer: 5
-  m_Name: CompletePanel
+  m_Name: CompletionUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16733,23 +16719,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3504118174701825180}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2710840641653652233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4964825835852600091}
-  - component: {fileID: 2083939142247591109}
-  m_Layer: 0
-  m_Name: Timer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &2713218109376267265
 Transform:
   m_ObjectHideFlags: 0
@@ -20894,11 +20863,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2077479989135649101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3757715211642483975
@@ -25888,21 +25857,6 @@ MonoBehaviour:
   waterDrag: 1
   WaterAngularDrag: 1
   water: {fileID: 2099274224}
---- !u!4 &4964825835852600091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2710840641653652233}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.20197, y: 0.11134, z: -67.84367}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4975338181192106001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35541,11 +35495,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2077479989135649101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7707525021817093067
@@ -40820,14 +40774,11 @@ SceneRoots:
   - {fileID: 2099274225}
   - {fileID: 34539760}
   - {fileID: 2077479989135649101}
-  - {fileID: 4964825835852600091}
   - {fileID: 6700146515283187638}
   - {fileID: 8611031757800489409}
   - {fileID: 906259773}
   - {fileID: 610845003}
   - {fileID: 1289911102}
-  - {fileID: 3755887512870612601}
-  - {fileID: 7707208992462442722}
   - {fileID: 4292527193956358050}
   - {fileID: 1292401576}
   - {fileID: 1645624705}
