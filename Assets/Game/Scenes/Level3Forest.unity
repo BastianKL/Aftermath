@@ -193063,9 +193063,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: a7e78511b367450429dd142caecd116b, type: 3}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: CloseCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -194907,7 +194907,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: OpenSettings
         m_Mode: 1
@@ -199875,7 +199875,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: QuitToDesktop
         m_Mode: 1
@@ -204672,7 +204672,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: QuitToMenu
         m_Mode: 1
@@ -204746,7 +204746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -207737,7 +207737,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7261996606036180440, guid: db7a10c2f3bc7084ea41f202d0a97059, type: 3}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
         m_MethodName: OpenCredits
         m_Mode: 1
