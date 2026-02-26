@@ -151575,7 +151575,7 @@ GameObject:
   - component: {fileID: 1725828118}
   m_Layer: 3
   m_Name: HardPlastic
-  m_TagString: Hard Plastic
+  m_TagString: Soft Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
