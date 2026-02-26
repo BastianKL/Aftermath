@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

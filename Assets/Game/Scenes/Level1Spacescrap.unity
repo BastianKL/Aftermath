@@ -77478,7 +77478,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345160473}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 76960523e336fc64ea38dcbeb49ec6ca, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: f5e9f50741819dc4799a057e4e8f2851, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -88917,10 +88917,7 @@ MonoBehaviour:
   playerTag: Player
   showOnlyOnce: 1
   dialogueEntries:
-  - dialogueText: 'Come back here later
-
-      You''ll need to go through the procedure
-      first'
+  - dialogueText: Carry on
     dialogueAudio: {fileID: 0}
     displayDuration: 5
   dialogueTextField: {fileID: 2933241377764228827}
@@ -101909,10 +101906,10 @@ MonoBehaviour:
   playerTag: Player
   showOnlyOnce: 1
   dialogueEntries:
-  - dialogueText: 'You''ll just need to a minimum of 10 pieces of space scrap
+  - dialogueText: 'You''ll just need a minimum of 10 pieces of space scrap
 
       After
-      that head back inside and drop down the space pod chute'
+      that head back inside and drop down the chute to the space pod'
     dialogueAudio: {fileID: 0}
     displayDuration: 10
   dialogueTextField: {fileID: 2933241377764228827}

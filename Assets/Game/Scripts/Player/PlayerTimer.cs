@@ -129,7 +129,7 @@ public class PlayerTimer : MonoBehaviour
         }
     }
 
-    private string GetFormattedTime()
+    public string GetFormattedTime()
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
