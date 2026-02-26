@@ -93,8 +93,6 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: eb607f5e8fc16e140b732f33d26c8c31, type: 3}
     second:
       variants:
-      - keywords: 
-        passType: 8
       - keywords: INSTANCING_ON _TERRAIN_INSTANCED_PERPIXEL_NORMAL
         passType: 8
       - keywords: _TERRAIN_INSTANCED_PERPIXEL_NORMAL
@@ -151,8 +149,6 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: e96e3b8a4797c8f47b7ae6759a3e66af, type: 3}
     second:
       variants:
-      - keywords: 
-        passType: 8
       - keywords: _TERRAIN_INSTANCED_PERPIXEL_NORMAL
         passType: 8
   - first: {fileID: 4800000, guid: 67d6171b0acc6554aad48c845ec7e67f, type: 3}
