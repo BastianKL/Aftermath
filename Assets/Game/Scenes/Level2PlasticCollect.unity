@@ -7811,7 +7811,7 @@ MonoBehaviour:
   waterFoamDebugMode: 0
   underWater: 1
   volumeBounds: {fileID: 0}
-  volumeDepth: 40
+  volumeDepth: 4
   volumeHeight: 0
   volumePrority: 0
   absorptionDistanceMultiplier: 1
@@ -7823,8 +7823,8 @@ MonoBehaviour:
   decalRegionAnchor: {fileID: 0}
   supportLargeCurrent: 0
   largeCurrentRes: 512
-  largeCurrentSpeedValue: 0
-  largeCurrentMap: {fileID: 0}
+  largeCurrentSpeedValue: 1
+  largeCurrentMap: {fileID: 2800000, guid: 8aaa6239e6997b8408297357af2cc685, type: 3}
   largeCurrentRegionExtent: {x: 100, y: 100}
   largeCurrentRegionOffset: {x: 0, y: 0}
   largeCurrentMapInfluence: 1
@@ -7913,7 +7913,7 @@ MonoBehaviour:
   ripplesFadeDistance: 200
   simulationMask: 0
   maskRes: 512
-  waterMask: {fileID: 0}
+  waterMask: {fileID: 2800000, guid: 8aaa6239e6997b8408297357af2cc685, type: 3}
   waterMaskRemap: {x: 0, y: 1}
   waterMaskExtent: {x: 100, y: 100}
   waterMaskOffset: {x: 0, y: 0}

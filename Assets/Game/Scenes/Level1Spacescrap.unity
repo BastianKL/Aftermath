@@ -99015,7 +99015,7 @@ MonoBehaviour:
       Find a way to open the
       big door ahead'
     dialogueAudio: {fileID: 0}
-    displayDuration: 5
+    displayDuration: 10
   dialogueTextField: {fileID: 2933241377764228827}
   dialoguePanel: {fileID: 45013899}
   audioSource: {fileID: 0}
@@ -114367,7 +114367,7 @@ MonoBehaviour:
   tutorialMessage: 'Hold WASD to fly in the direction you are looking
 
     Be wary
-    of health outside'
+    of health when outside'
   displayDuration: 5
   tutorialTextField: {fileID: 5727273199383721984}
   tutorialPanel: {fileID: 2131933787608598122}
