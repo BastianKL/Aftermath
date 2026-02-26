@@ -11723,7 +11723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa64ed7d45321847afdc67130982e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveLoadManager
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 353618094009336499}
 --- !u!114 &1062118100913890693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14935,7 +14935,7 @@ MonoBehaviour:
   playerMovement: {fileID: 353618094009336499}
   playerStamina: {fileID: 5582302802459962209}
   playerHealth: {fileID: 1458020031071612248}
-  subtitlesUI: {fileID: 0}
+  subtitlesUI: {fileID: 1893368233}
   tutorialUI:
   - {fileID: 0}
   - {fileID: 0}
