@@ -13,10 +13,8 @@ public class IntroManager : MonoBehaviour
 
     private IEnumerator PlayIntroSequence()
     {
-        // Small delay to ensure everything is loaded
         yield return new WaitForSeconds(0.5f);
 
-        // Start camera zoom from TV to player
         if (cameraZoom != null)
         {
             Debug.Log("Starting camera zoom!");

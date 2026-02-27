@@ -11,7 +11,6 @@ public class SimpleInteract : MonoBehaviour, Interactable
     {
         onInteract.Invoke();
 
-        // Start timer on first door interaction
         if (startsTimer && PlayerTimer.Instance != null)
         {
             PlayerTimer.Instance.StartTimer();

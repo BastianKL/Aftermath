@@ -4,9 +4,9 @@ public class KeypadButton : MonoBehaviour, Interactable
 {
     public enum ButtonType { Digit, Backspace, Submit }
     public ButtonType buttonType;
-    public string digitValue; // For digits 0-9
+    public string digitValue;
 
-    public Keypad keypad; // Assign in inspector or dynamically
+    public Keypad keypad; 
 
     public void Interact()
     {
@@ -26,4 +26,3 @@ public class KeypadButton : MonoBehaviour, Interactable
         }
     }
 }
-

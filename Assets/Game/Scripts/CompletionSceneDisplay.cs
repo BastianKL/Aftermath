@@ -5,7 +5,7 @@ public class CompletionSceneDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI completionTimeText;
 
-    private void Awake()
+    private void Start()
     {
         if (completionTimeText == null)
         {

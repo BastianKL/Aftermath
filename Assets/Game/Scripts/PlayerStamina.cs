@@ -24,13 +24,12 @@ public class PlayerStamina : MonoBehaviour
     private bool isRegenerating = true;
 
     [Header("Events")]
-    public UnityEvent<float, float> OnStaminaChanged; // (currentHealth, maxHealth)
+    public UnityEvent<float, float> OnStaminaChanged;
     public UnityEvent OnExhausted;
     public UnityEvent OnExhaustionRecovered;
 
     private bool systemEnabled = true;
     public void SetEnabled(bool enabled) => systemEnabled = enabled;
-    //
 
     private void Start()
     {
@@ -40,7 +39,6 @@ public class PlayerStamina : MonoBehaviour
 
     private void Update()
     {
-        // Handle exhaustion - must complete the full duration
         if (isExhausted)
         {
             exhaustionTimer += Time.deltaTime;
@@ -48,16 +46,15 @@ public class PlayerStamina : MonoBehaviour
             {
                 isExhausted = false;
                 exhaustionTimer = 0f;
-                timeSinceLastUse = 0f; // Reset timer for regen delay
-                currentStamina = maxStamina * 0.3f; // Recover to 30%
+                timeSinceLastUse = 0f; 
+                currentStamina = maxStamina * 0.3f; 
                 OnStaminaChanged?.Invoke(currentStamina, maxStamina);
                 OnExhaustionRecovered?.Invoke();
                 Debug.Log("Recovered from exhaustion! Stamina will regenerate soon.");
             }
-            return; // Don't regenerate or count time while exhausted
+            return; 
         }
 
-        // Handle regeneration delay
         if (isRegenerating && currentStamina < maxStamina)
         {
             timeSinceLastUse += Time.deltaTime;
@@ -77,7 +74,7 @@ public class PlayerStamina : MonoBehaviour
         {
             currentStamina -= amount;
             currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-            timeSinceLastUse = 0f; // Reset regen delay timer
+            timeSinceLastUse = 0f; 
             OnStaminaChanged?.Invoke(currentStamina, maxStamina);
 
             CheckExhaustion();
@@ -92,7 +89,7 @@ public class PlayerStamina : MonoBehaviour
 
         currentStamina -= drainRate * Time.deltaTime;
         currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        timeSinceLastUse = 0f; // Reset regen delay timer
+        timeSinceLastUse = 0f; 
         OnStaminaChanged?.Invoke(currentStamina, maxStamina);
 
         CheckExhaustion();

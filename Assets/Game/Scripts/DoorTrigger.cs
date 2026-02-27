@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField] private MonoBehaviour doorScript; // Assign DoorRotater or DoorSlider
+    [SerializeField] private MonoBehaviour doorScript;
     [SerializeField] private string playerTag = "Player";
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(playerTag))
         {
-            // Try both door types
             if (doorScript is DoorRotater rotater)
             {
                 rotater.RequestOpen();

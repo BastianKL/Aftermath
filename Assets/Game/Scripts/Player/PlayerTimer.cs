@@ -18,7 +18,6 @@ public class PlayerTimer : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern with DontDestroyOnLoad
         if (Instance == null)
         {
             Instance = this;
@@ -47,7 +46,6 @@ public class PlayerTimer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Re-find UI references if they were lost during scene change
         if (timerText == null || timerUI == null)
         {
             FindUIReferences();
@@ -56,7 +54,6 @@ public class PlayerTimer : MonoBehaviour
 
     private void FindUIReferences()
     {
-        // Try to find timer UI in the new scene
         var foundTimerUI = GameObject.Find("TimerUI");
         if (foundTimerUI != null)
         {

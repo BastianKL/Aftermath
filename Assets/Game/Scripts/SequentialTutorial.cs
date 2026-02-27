@@ -43,7 +43,6 @@ public class SequentialTutorial : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Optionally check for player tag
         if (other.CompareTag("Player"))
         {
             StartTutorial();
@@ -52,13 +51,12 @@ public class SequentialTutorial : MonoBehaviour
 
     public void StartTutorial()
     {
-        // Activate the panel FIRST so coroutines can run
         if (tutorialPanel != null)
         {
             tutorialPanel.SetActive(true);
         }
 
-        gameObject.SetActive(true); // Make sure this GameObject is active too
+        gameObject.SetActive(true);
         tutorialActive = true;
         StartCoroutine(ShowLookTutorial());
     }
@@ -67,7 +65,6 @@ public class SequentialTutorial : MonoBehaviour
     {
         if (!tutorialActive) return;
 
-        // Check for mouse movement
         if (!lookTutorialComplete)
         {
             if (Mouse.current != null)
@@ -82,7 +79,7 @@ public class SequentialTutorial : MonoBehaviour
                 }
             }
         }
-        // Check for WASD movement
+       
         else if (!moveTutorialComplete)
         {
             if (Keyboard.current != null)

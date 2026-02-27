@@ -54,7 +54,6 @@ public class LevelTransition : MonoBehaviour
         {
             hasTriggered = true;
 
-            // Freeze player movement
             if (freezePlayer)
             {
                 var playerMovement = other.GetComponent<PlayerMovement>();
@@ -70,29 +69,24 @@ public class LevelTransition : MonoBehaviour
 
     private IEnumerator TransitionToNextLevel()
     {
-        // Show cursor for video watching
         if (playVideo)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
 
-        // Fade to black
         yield return StartCoroutine(FadeToBlack());
 
-        // Play video if enabled
         if (playVideo && videoPlayer != null)
         {
             yield return StartCoroutine(PlayTransitionVideo());
         }
 
-        // Show loading screen
         if (loadingScreen != null)
         {
             loadingScreen.SetActive(true);
         }
 
-        // Load next scene
         SceneManager.LoadScene(nextSceneName);
     }
 

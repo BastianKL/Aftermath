@@ -5,9 +5,9 @@ using UnityEngine.Events;
 public class ButtonPuzzleManager : MonoBehaviour
 {
     public static ButtonPuzzleManager Instance { get; private set; }
-    [SerializeField] private List<int> correctOrder; // Set in Inspector
-    [SerializeField] private List<ButtonInteractable> buttons; // Assign in Inspector
-    public UnityEvent onPuzzleSolved; // Assign in Inspector
+    [SerializeField] private List<int> correctOrder; 
+    [SerializeField] private List<ButtonInteractable> buttons; 
+    public UnityEvent onPuzzleSolved; 
 
     private List<int> currentOrder = new List<int>();
 
@@ -26,11 +26,9 @@ public class ButtonPuzzleManager : MonoBehaviour
             if (IsCorrect())
             {
                 onPuzzleSolved.Invoke();
-                // Optionally, keep buttons locked or add more feedback here
             }
             else
             {
-                // Reset all buttons
                 foreach (var btn in buttons)
                     btn.ResetButton();
                 currentOrder.Clear();

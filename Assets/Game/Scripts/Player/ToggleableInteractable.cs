@@ -18,7 +18,6 @@ public class ToggleableInteractable : MonoBehaviour, Interactable
         {
             onOpen.Invoke();
 
-            // Stop timer when this button is pressed
             if (stopsTimer && PlayerTimer.Instance != null)
             {
                 PlayerTimer.Instance.StopTimer();

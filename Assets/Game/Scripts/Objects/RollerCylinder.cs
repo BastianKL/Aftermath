@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class RollerCylinder : MonoBehaviour, Interactable
 {
-    [SerializeField] private int cylinderIndex = 0; // Set by manager or in Inspector
-    [SerializeField] private int numberCount = 4;   // How many positions (e.g., 4 for 0-3)
-    [SerializeField] private float rotationDuration = 0.3f; // How long to rotate
-    [SerializeField] private Transform numberDisplay; // Assign the mesh/child to rotate
-    [SerializeField] private int startRotationIndex = 0; // Set in Inspector
+    [SerializeField] private int cylinderIndex = 0; 
+    [SerializeField] private int numberCount = 4;   
+    [SerializeField] private float rotationDuration = 0.3f; 
+    [SerializeField] private Transform numberDisplay; 
+    [SerializeField] private int startRotationIndex = 0; 
 
     private int rotationIndex = 0;
     private bool isRotating = false;

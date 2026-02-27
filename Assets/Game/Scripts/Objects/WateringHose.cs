@@ -7,10 +7,10 @@ public class WateringHose : MonoBehaviour
     public float extinguishTime = 3f;
     public float maxDistance = 10f;
     public ParticleSystem waterParticles;
-    public Transform waterParticlesTransform; // Reference to the child transform
+    public Transform waterParticlesTransform; 
 
     [Header("Input")]
-    public InputActionReference useAction; // Assign your LMB action here
+    public InputActionReference useAction; 
 
     private float fireTimer = 0f;
     private FireTree currentTree = null;
@@ -52,10 +52,8 @@ public class WateringHose : MonoBehaviour
 
     private void Update()
     {
-        // Rotate the particle child object for dynamic appearance
         if (waterParticlesTransform != null)
         {
-            // Rotate around the local forward axis (direction of water spray)
             waterParticlesTransform.Rotate(waterParticlesTransform.forward, 100f * Time.deltaTime, Space.World);
         }
 

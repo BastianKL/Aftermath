@@ -30,7 +30,6 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        // Completely disable video at start
         if (videoPlayer != null)
         {
             videoPlayer.playOnAwake = false;
@@ -43,17 +42,14 @@ public class Menu : MonoBehaviour
             VideoRenderer.SetActive(false);
         }
 
-        // Disable loading screen
         if (loadingscreen != null)
         {
             loadingscreen.SetActive(false);
         }
 
-        // Setup cursor
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        // Setup fade image
         if (fadeInImage != null)
         {
             Color c = fadeInImage.color;
@@ -62,7 +58,6 @@ public class Menu : MonoBehaviour
             fadeInImage.gameObject.SetActive(false);
         }
 
-        // Setup black overlay
         if (blackOverlay != null)
         {
             Color c = blackOverlay.color;
@@ -79,7 +74,6 @@ public class Menu : MonoBehaviour
 
     private IEnumerator PlayCinematicIntro()
     {
-        // 1. Fade to black (0 to 100)
         if (blackOverlay != null)
         {
             blackOverlay.gameObject.SetActive(true);
@@ -97,10 +91,8 @@ public class Menu : MonoBehaviour
             blackOverlay.color = finalColor;
         }
 
-        // 2. Black screen silence
         yield return new WaitForSeconds(silenceDuration);
 
-        // 3. Fade in video image ON TOP of black (black stays at 100)
         if (fadeInImage != null)
         {
             fadeInImage.gameObject.SetActive(true);
@@ -118,10 +110,8 @@ public class Menu : MonoBehaviour
             fadeInImage.color = finalColor;
         }
 
-        // 4. Hold image
         yield return new WaitForSeconds(imageHoldDuration);
 
-        // 5. Prepare video while image is still visible
         yield return StartCoroutine(PlayPrologueAndLoad());
     }
 
@@ -133,7 +123,6 @@ public class Menu : MonoBehaviour
             yield break;
         }
 
-        // Activate video renderer behind everything
         if (VideoRenderer != null)
         {
             VideoRenderer.SetActive(true);
@@ -149,13 +138,10 @@ public class Menu : MonoBehaviour
             yield return null;
         }
 
-        // Start playing video (behind image and black)
         videoPlayer.Play();
 
-        // Small delay to ensure first frame is rendered
         yield return new WaitForSeconds(0.1f);
 
-        // Instantly hide image and black overlay to reveal video (no fade)
         if (fadeInImage != null)
         {
             fadeInImage.gameObject.SetActive(false);
@@ -166,7 +152,6 @@ public class Menu : MonoBehaviour
             blackOverlay.gameObject.SetActive(false);
         }
 
-        // Wait for video to finish
         while (videoPlayer.isPlaying)
         {
             yield return null;
@@ -207,11 +192,11 @@ public class Menu : MonoBehaviour
     public void OpenCredits()
     {
         creditsPanel.SetActive(true);
-        pauseMenu.SetActive(false); // or main menu panel
+        pauseMenu.SetActive(false); 
     }
     public void CloseCredits()
     {
         creditsPanel.SetActive(false);
-        pauseMenu.SetActive(true); // or main menu panel
+        pauseMenu.SetActive(true); 
     }
 }

@@ -10,17 +10,16 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Health Regeneration")]
     [SerializeField] private bool enableRegen = false;
-    [SerializeField] private float regenRate = 5f; // Health per second
-    [SerializeField] private float regenDelay = 3f; // Seconds after damage before regen starts
+    [SerializeField] private float regenRate = 5f; 
+    [SerializeField] private float regenDelay = 3f; 
     private float timeSinceLastDamage = 0f;
 
     [Header("Events")]
-    public UnityEvent<float, float> OnHealthChanged; // (currentHealth, maxHealth)
+    public UnityEvent<float, float> OnHealthChanged; 
     public UnityEvent OnDeath;
 
     private bool systemEnabled = true;
     public void SetEnabled(bool enabled) => systemEnabled = enabled;
-    //
 
     private void Start()
     {
@@ -29,7 +28,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log($"PlayerHealth initialized: {currentHealth}/{maxHealth}");
     }
 
-    // TEMPORARY TEST - Press T to test damage
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
@@ -38,7 +36,6 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Test damage applied!");
         }
 
-        // Handle regeneration
         if (enableRegen && currentHealth < maxHealth && currentHealth > 0)
         {
             timeSinceLastDamage += Time.deltaTime;
@@ -56,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        // Reset regeneration timer
         timeSinceLastDamage = 0f;
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
@@ -87,7 +83,6 @@ public class PlayerHealth : MonoBehaviour
     {
         OnDeath?.Invoke();
         Debug.Log("Player died!");
-        // Add death logic here (respawn, game over, etc.)
     }
 
     public float GetCurrentHealth() => currentHealth;

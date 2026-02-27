@@ -9,7 +9,6 @@ public class SettingsManager : MonoBehaviour
     public AudioMixer audioMixer;
     public GameObject pauseMenu;
 
-    // Player and UI references
     public PlayerMovement playerMovement;
     public PlayerStamina playerStamina;
     public PlayerHealth playerHealth;
@@ -17,7 +16,6 @@ public class SettingsManager : MonoBehaviour
     public GameObject[] tutorialUI;
     public GameObject musicToastUI;
 
-    // Volume sliders
     public Slider masterVolumeSlider;
     public Slider ambientVolumeSlider;
     public Slider sfxVolumeSlider;
@@ -55,7 +53,6 @@ public class SettingsManager : MonoBehaviour
             previousMenu.SetActive(true);
     }
 
-    // General
     public void SetViewBobbing(bool enabled)
     {
         if (playerMovement != null)
@@ -74,7 +71,6 @@ public class SettingsManager : MonoBehaviour
             playerHealth.SetEnabled(enabled);
     }
 
-    // UI
     public void SetSubtitlesEnabled(bool enabled)
     {
         if (subtitlesUI != null)
@@ -99,12 +95,10 @@ public class SettingsManager : MonoBehaviour
             musicToastUI.SetActive(enabled);
     }
 
-    // Quality
     public void SetQualityLow() => QualitySettings.SetQualityLevel(0);
     public void SetQualityMedium() => QualitySettings.SetQualityLevel(1);
     public void SetQualityHigh() => QualitySettings.SetQualityLevel(2);
 
-    // Audio
     public void SetMasterVolume(float value)
     {
         float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20;

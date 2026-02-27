@@ -12,18 +12,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //Spiller atmosfære i loop lyd ved start
         audioSourceAmb = gameObject.AddComponent<AudioSource>();
         audioSourceAmb.clip = loopAudioClip;
         audioSourceAmb.loop = true;
         audioSourceAmb.playOnAwake = true;
         audioSourceAmb.Play();
-        //Tilfældige lyde i et interval sættes til ikke at køre
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = false;
         audioSource.playOnAwake = false;
     }
-    //Afspiller en tilfældig lyd
+
     public void PlayRandomAudio()
     {
         if (randomAudioClips != null && randomAudioClips.Length > 0)
@@ -33,7 +31,7 @@ public class GameManager : MonoBehaviour
             audioSource.Play();
         }
     }
-    //Opdaterer timeren og afspiller en ny lyd indenfor intervallet
+ 
     private void Update()
     {
         timer += Time.deltaTime;

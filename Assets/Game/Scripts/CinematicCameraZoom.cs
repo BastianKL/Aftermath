@@ -35,7 +35,6 @@ public class CinematicCameraZoom : MonoBehaviour
             playerMovement.SetControlsEnabled(false);
         }
 
-        // Unlock cursor at start (optional, for cinematic)
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -69,20 +68,16 @@ public class CinematicCameraZoom : MonoBehaviour
         _camera.transform.position = playerEyesPosition.position;
         _camera.transform.rotation = playerEyesPosition.rotation;
 
-        // Enable player controls
         if (playerMovement != null)
         {
             playerMovement.SetControlsEnabled(true);
         }
 
-        // Lock and hide the cursor for gameplay
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Make camera follow player
         _camera.transform.SetParent(playerEyesPosition);
 
-        // Start tutorial after zoom complete
         if (sequentialTutorial != null)
         {
             sequentialTutorial.StartTutorial();

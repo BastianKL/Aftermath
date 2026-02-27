@@ -10,7 +10,7 @@ public class ItemBox : MonoBehaviour
     public int itemsToRemove = 20;
     public UnityEvent onThresholdReached;
 
-    public List<string> allowedTags; // Add allowed tags in the Inspector
+    public List<string> allowedTags; 
 
     private int itemsRemoved = 0;
     private Renderer counterRenderer;
@@ -32,7 +32,6 @@ public class ItemBox : MonoBehaviour
 
     private bool IsAllowedItem(Collider other)
     {
-        // Filter by tag
         return allowedTags.Contains(other.tag);
     }
 

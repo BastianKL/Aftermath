@@ -59,8 +59,8 @@ public class BoatCrateRack : MonoBehaviour
 
         foreach (var col in item.GetComponentsInChildren<Collider>())
         {
-            col.enabled = true;     // så raycast kan ramme den
-            col.isTrigger = true;  // så den ikke presser båden
+            col.enabled = true;     
+            col.isTrigger = true;  
         }
 
         if (disableFloaters)
@@ -68,8 +68,6 @@ public class BoatCrateRack : MonoBehaviour
             foreach (var floater in item.GetComponentsInChildren<Floater>())
                 floater.enabled = false;
         }
-
- 
 
         item.transform.SetParent(slots[slot], false);
         item.transform.localPosition = Vector3.zero;

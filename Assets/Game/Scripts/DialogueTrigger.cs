@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource audioSource; // Assign in Inspector
+    [SerializeField] private AudioSource audioSource; 
 
     private bool hasShown = false;
     private Coroutine currentCoroutine;

@@ -50,7 +50,6 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
         var heldObj = player.GetHeldItem();
         if (heldObj == null) return;
 
-        // Vi destroyer root item (samme som før)
         var pickup = heldObj.GetComponentInParent<PickupItem>();
         if (pickup == null) return;
 
@@ -69,14 +68,12 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
     {
         busy = true;
 
-        // 1) Trigger animation én gang
         if (boxAnimator != null && !string.IsNullOrEmpty(useTrigger))
         {
             boxAnimator.ResetTrigger(useTrigger);
             boxAnimator.SetTrigger(useTrigger);
         }
 
-        // 2) Frigør item fra spillerens "hold"
         var pickup = itemRoot.GetComponentInParent<PickupItem>();
         if (pickup != null)
         {
@@ -84,10 +81,8 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
             pickup.SetHeld(false);
         }
 
-        // 3) Gør item klar til drag (slå physics/colliders fra)
         PrepareItemForDrag(itemRoot);
 
-        // 4) Drag: nuværende position (hånd-ish) -> dropStart -> dropEnd
         Vector3 from = itemRoot.transform.position;
 
         if (dropStart != null)
@@ -100,11 +95,9 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
             yield return StartCoroutine(DragItemBezier(itemRoot.transform, itemRoot.transform.position, dropEnd.position, dragToEndDuration, 0f));
         }
 
-        // 5) Lille pause (valgfrit)
         if (destroyDelayAfterDrop > 0f)
             yield return new WaitForSeconds(destroyDelayAfterDrop);
 
-        // 6) Destroy + counter + threshold
         Destroy(itemRoot);
         itemsRemoved++;
 
@@ -118,14 +111,11 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
 
     private void PrepareItemForDrag(GameObject itemRoot)
     {
-        // Unparent fra hånd/holder hvis den er parented
         itemRoot.transform.SetParent(null, true);
 
-        // Slå colliders fra i hele item-hierarkiet
         foreach (var c in itemRoot.GetComponentsInChildren<Collider>(true))
             c.enabled = false;
 
-        // Slå physics fra uden at røre velocity (undgår fejl)
         foreach (var rb in itemRoot.GetComponentsInChildren<Rigidbody>(true))
         {
             rb.isKinematic = true;
@@ -137,7 +127,6 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
     {
         if (t == null) yield break;
 
-        // Hvis duration er 0, hop direkte
         if (duration <= 0f)
         {
             t.position = to;
@@ -152,7 +141,6 @@ public class DumpsterItemBoxInteractable : MonoBehaviour, Interactable
             time += Time.deltaTime;
             float u = Mathf.Clamp01(time / duration);
 
-            // Quadratic bezier
             Vector3 p1 = Vector3.Lerp(from, mid, u);
             Vector3 p2 = Vector3.Lerp(mid, to, u);
             t.position = Vector3.Lerp(p1, p2, u);

@@ -6,7 +6,7 @@ public class ElevatorPlatform : MonoBehaviour
     public Transform bottomPoint;
     public float speed = 2f;
     public bool startAtBottom = true;
-    public bool moveUpOnPlate = true; // If false, moves down on plate
+    public bool moveUpOnPlate = true; 
 
     private bool isMoving = false;
     private bool isAtTop = false;
@@ -52,11 +52,10 @@ public class ElevatorPlatform : MonoBehaviour
             {
                 transform.position = targetPosition;
                 isMoving = false;
-                // Automatically return after reaching the top/bottom
                 if (moveUpOnPlate && targetPosition == topPoint.position)
-                    Invoke(nameof(ReturnToBottom), 1.0f); // Wait 1s at top
+                    Invoke(nameof(ReturnToBottom), 1.0f); 
                 else if (!moveUpOnPlate && targetPosition == bottomPoint.position)
-                    Invoke(nameof(ReturnToTop), 1.0f); // Wait 1s at bottom
+                    Invoke(nameof(ReturnToTop), 1.0f); 
             }
         }
     }

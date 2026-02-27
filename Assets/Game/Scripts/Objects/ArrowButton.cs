@@ -5,7 +5,7 @@ public class ArrowButton : MonoBehaviour
 {
     public Vector3 pressedOffset = new Vector3(0, -0.1f, 0);
     public float pressDuration = 0.1f;
-    public UnityEvent<Vector3> onArrowPressed; // Direction as parameter
+    public UnityEvent<Vector3> onArrowPressed; 
     public UnityEvent onArrowReleased;
 
     private Vector3 originalPosition;

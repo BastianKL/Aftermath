@@ -30,10 +30,8 @@ public class MovingPlatformLinear : MonoBehaviour
 
     private void Update()
     {
-        // Move towards target
         transform.position = Vector3.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
 
-        // Switch direction when reached
         if (Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
             targetPoint = targetPoint == worldPointB ? worldPointA : worldPointB;

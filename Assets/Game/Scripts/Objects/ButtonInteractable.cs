@@ -4,7 +4,7 @@ public class ButtonInteractable : MonoBehaviour, Interactable
 {
     [SerializeField] private Vector3 pressedOffset = new Vector3(0, -0.1f, 0);
     [SerializeField] private float pressDuration = 0.15f;
-    [SerializeField] private int buttonIndex = 0; // Set in Inspector or by manager
+    [SerializeField] private int buttonIndex = 0; 
 
     private Vector3 originalPosition;
     private bool isPressed = false;

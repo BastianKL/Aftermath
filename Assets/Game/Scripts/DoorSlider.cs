@@ -37,7 +37,6 @@ public class DoorSlider : MonoBehaviour, Interactable
         }
     }
 
-    // Called by your existing interaction system
     public void Interact()
     {
         if (isLocked)
@@ -46,7 +45,6 @@ public class DoorSlider : MonoBehaviour, Interactable
             return;
         }
 
-        // Toggle door state
         if (isOpen)
         {
             doorRequest = false;
@@ -90,7 +88,6 @@ public class DoorSlider : MonoBehaviour, Interactable
         {
             if (_currentCoroutine != null) StopCoroutine(_currentCoroutine);
 
-            // Disable collider before starting the coroutine
             if (doorCollider != null) doorCollider.enabled = false;
 
             _currentCoroutine = StartCoroutine(OpenDoor());
@@ -117,7 +114,6 @@ public class DoorSlider : MonoBehaviour, Interactable
         transform.position = _openPosition;
         isOpen = true;
 
-        // Enable collider only if the door stays open
         if (staysOpen && doorCollider != null)
         {
             doorCollider.enabled = true;

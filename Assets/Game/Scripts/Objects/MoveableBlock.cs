@@ -4,12 +4,11 @@ public class MoveableBlock : MonoBehaviour, Interactable
 {
     [SerializeField] private float moveDistance = 1f;
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private Vector3 blockSize = new Vector3(1, 1, 1); // Set to match your block's collider size
-    [SerializeField] private LayerMask obstacleLayers; // Set in Inspector
+    [SerializeField] private Vector3 blockSize = new Vector3(1, 1, 1);
+    [SerializeField] private LayerMask obstacleLayers; 
 
     private bool isMoving = false;
 
-    // Called by InteractionController when player presses E
     public void Interact()
     {
         var player = FindObjectOfType<PlayerMovement>();
@@ -26,7 +25,6 @@ public class MoveableBlock : MonoBehaviour, Interactable
             Vector3 start = transform.position;
             Vector3 end = start + pushDir * moveDistance;
 
-            // BoxCast to check if path is clear
             if (!Physics.BoxCast(
                 start,
                 blockSize * 0.5f,
@@ -81,7 +79,6 @@ public class MoveableBlock : MonoBehaviour, Interactable
 
         if (overlappingOther)
         {
-            // Revert move if overlapping another object
             transform.position = start;
         }
 

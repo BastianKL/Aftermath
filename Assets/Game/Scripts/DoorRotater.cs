@@ -11,11 +11,11 @@ public class DoorRotater : MonoBehaviour, Interactable
     [SerializeField] private float autoCloseDelay = 3f;
 
     [Header("Interaction")]
-    [SerializeField] private bool requiresInteraction = false; // Press E to open
-    [SerializeField] private bool isLocked = false; // Door is locked until unlocked
+    [SerializeField] private bool requiresInteraction = false; 
+    [SerializeField] private bool isLocked = false; 
 
     [Header("Collision")]
-    [SerializeField] private Collider doorCollider; // Assign the door's collider
+    [SerializeField] private Collider doorCollider; 
 
     [Header("Audio")]
     [SerializeField] private AudioSource openSound;
@@ -37,7 +37,6 @@ public class DoorRotater : MonoBehaviour, Interactable
         }
     }
 
-    // Called by your existing interaction system
     public void Interact()
     {
         if (isLocked)
@@ -46,7 +45,6 @@ public class DoorRotater : MonoBehaviour, Interactable
             return;
         }
 
-        // Toggle door state
         if (isOpen)
         {
             doorRequest = false;

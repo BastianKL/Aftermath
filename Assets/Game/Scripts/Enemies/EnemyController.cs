@@ -92,7 +92,6 @@ public class EnemyController : MonoBehaviour
             case EnemyState.Attacking:
                 Attack();
 
-                // Check if player moved out of attack range
                 if (distanceToPlayer > attackRange)
                 {
                     _state = EnemyState.Following;
@@ -102,7 +101,6 @@ public class EnemyController : MonoBehaviour
                     _timeSinceLostPlayer = 0;
                 }
 
-                // Check if we lost sight of the player
                 if (!CanSeePlayer())
                 {
                     _timeSinceLostPlayer += Time.deltaTime;
@@ -139,7 +137,6 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        // Keep the agent completely stopped while in attack state
         _agent.isStopped = true;
         _agent.velocity = Vector3.zero;
         _agent.updatePosition = false;
@@ -164,8 +161,6 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Attack animation ended!");
     }
 
-    // Called from Animation Event - add this to your attack animation
-    // Replace the DealDamage method with this:
     private void DealDamage()
     {
         Debug.Log("DealDamage called from animation event!");
@@ -174,7 +169,6 @@ public class EnemyController : MonoBehaviour
 
         if (distanceToPlayer <= attackRange)
         {
-            // Try to find PlayerHealth on the player or its parent
             var playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth == null)
             {

@@ -11,8 +11,8 @@ public class InteractionController : MonoBehaviour
     [SerializeField] private float interactionDistance = 3;
     [SerializeField] private LayerMask interactionLayer;
 
-    [SerializeField] private InputActionReference interactAction; // E
-    [SerializeField] private InputActionReference boardAction;    // F
+    [SerializeField] private InputActionReference interactAction; 
+    [SerializeField] private InputActionReference boardAction;   
 
     [SerializeField] private TextMeshProUGUI interactionText;
     [SerializeField] private string interactionMessage = "Press E to interact";

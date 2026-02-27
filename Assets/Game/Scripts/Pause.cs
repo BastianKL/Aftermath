@@ -7,9 +7,9 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public string MenuSceneName = "Menu";
     public GameObject settingsPanel;
-    public GameObject creditsPanel; // Assign in Inspector
+    public GameObject creditsPanel; 
     public PlayerMovement playerMovement;
-    public InputActionReference pauseAction; // Assign in Inspector
+    public InputActionReference pauseAction;
 
     private bool isPaused = false;
 

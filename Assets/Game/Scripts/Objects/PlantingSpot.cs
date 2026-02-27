@@ -4,7 +4,7 @@ public class PlantingSpot : MonoBehaviour, Interactable
 {
     public enum SpotType { Seed, Sapling }
     public SpotType spotType;
-    public GameObject plantedPrefab; // Prefab to instantiate when planted
+    public GameObject plantedPrefab;
 
     private bool isOccupied = false;
 

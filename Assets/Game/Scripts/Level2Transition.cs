@@ -3,8 +3,8 @@ using UnityEngine;
 public class Level2Transition : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject[] lights; // Assign your light GameObjects here
-    [SerializeField] private BoxCollider transitionCollider; // Reference to the trigger collider
+    [SerializeField] private GameObject[] lights;
+    [SerializeField] private BoxCollider transitionCollider; 
 
     private void Start()
     {
@@ -12,7 +12,6 @@ public class Level2Transition : MonoBehaviour
             transitionCollider.enabled = false;
     }
 
-    // Call this method whenever a light is turned off
     public void CheckLights()
     {
         if (lights == null || lights.Length == 0)

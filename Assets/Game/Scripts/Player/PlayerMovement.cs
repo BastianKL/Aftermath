@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float throwPower = 2f;
 
     [Header("Block Push")]
-    [SerializeField] private InputActionReference interactAction; // Assign your "E" action in Inspector
+    [SerializeField] private InputActionReference interactAction;
 
     [Header("Item UI")]
     [SerializeField] private TextMeshProUGUI dropInstructionText;
@@ -135,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
         _targetHeight = standingHeight;
         cameraDefaultLocalPos = cameraTransform.localPosition;
 
-        // Try to find PlayerHealth if not assigned
         if (playerHealth == null)
         {
             playerHealth = GetComponent<PlayerHealth>();
@@ -149,7 +148,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Hide drop instruction at start
         if (dropInstructionText != null)
         {
             dropInstructionText.gameObject.SetActive(false);
@@ -219,21 +217,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         UpdateDropInstructionUI();
-
-      //  if (interactAction != null && interactAction.action.IsPressed())
-       // {
-         //   Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-           // if (Physics.Raycast(ray, out RaycastHit hit, 1.5f))
-            //{
-              //  var block = hit.collider.GetComponent<MoveableBlock>();
-               // if (block != null)
-                //{
-                  //  block.TryPush(transform.position);
-                //}
-            //}
-        //}
     }
-
 
     private void UpdateDropInstructionUI()
     {
@@ -252,7 +236,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Public method to toggle space mode (call from trigger or script)
     public void SetSpaceMode(bool enabled)
     {
         isInSpaceMode = enabled;
@@ -279,11 +262,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleSpaceMovement()
     {
-        // Check exhaustion in space mode
         if (playerStamina != null && playerStamina.IsExhausted())
         {
             _isRunning = false;
-            // Drift to a stop
+        
             spaceVelocity = Vector3.Lerp(spaceVelocity, Vector3.zero, spaceDrag * 2f * Time.deltaTime);
             _characterController.Move(spaceVelocity * Time.deltaTime);
             return;
@@ -307,7 +289,6 @@ public class PlayerMovement : MonoBehaviour
 
         float currentSpeed = spaceSpeed;
 
-        // Handle boost in space
         if (_isRunning && inputDir.magnitude > 0.1f)
         {
             if (playerStamina != null)
@@ -389,7 +370,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Crouch(InputAction.CallbackContext context)
     {
-        if (isInSpaceMode) return; // Handled in HandleSpaceMovement
+        if (isInSpaceMode) return; 
 
         if (_isCrouching)
         {
@@ -408,25 +389,20 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanStandUp()
     {
-        // Calculate the height difference between standing and crouching
         float heightDifference = standingHeight - crouchingHeight;
 
-        // Get current center position (which adjusts with crouch height)
         Vector3 currentCenter = transform.position + _characterController.center;
 
-        // Bottom of capsule cast should be at current center
         Vector3 bottom = currentCenter - Vector3.up * (_characterController.height / 2f);
 
-        // Top should be at the top of the current crouch capsule
         Vector3 top = currentCenter + Vector3.up * (_characterController.height / 2f);
 
-        // Check if there's an obstacle in the space above where we would expand to
         bool hasObstacle = Physics.SphereCast(
             top,
             _characterController.radius,
             Vector3.up,
             out RaycastHit hit,
-            heightDifference - 0.1f); // Small buffer to prevent edge cases
+            heightDifference - 0.1f); 
 
         return !hasObstacle;
     }
@@ -435,7 +411,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed)
         {
-            // Only allow sprint if we have stamina
             if (playerStamina != null && playerStamina.HasStamina(1f))
             {
                 _isRunning = true;
@@ -460,14 +435,12 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement()
     {
         var move = cameraTransform.TransformDirection(new Vector3(_moveInput.x, 0, _moveInput.y)).normalized;
-        float currentSpeed; // Declare once at the top
-        Vector3 finalMove; // Declare once at the top
+        float currentSpeed; 
+        Vector3 finalMove; 
 
-        // Check exhaustion
         if (playerStamina != null && playerStamina.IsExhausted())
         {
             _isRunning = false;
-            // Can still walk while exhausted
             currentSpeed = _isCrouching ? crouchSpeed : walkSpeed;
             finalMove = move * currentSpeed;
             finalMove.y = _verticalVelocity;
@@ -481,7 +454,6 @@ public class PlayerMovement : MonoBehaviour
 
         currentSpeed = _isCrouching ? crouchSpeed : _isRunning ? runSpeed : walkSpeed;
 
-        // Drain stamina while running
         if (_isRunning && _moveInput.magnitude > 0.1f && _isGrounded)
         {
             if (playerStamina != null)
@@ -492,7 +464,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    _isRunning = false; // Stop running if out of stamina
+                    _isRunning = false;
                 }
             }
         }
@@ -581,7 +553,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (isInSpaceMode)
         {
-            // In space, rotate the entire player body with mouse X
             transform.Rotate(Vector3.up * mouseX, Space.World);
         }
         else
@@ -664,7 +635,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (playerStamina != null && !playerStamina.UseStamina(playerStamina.rollCost))
             {
-                return; // Not enough stamina
+                return; 
             }
 
             isRolling = true;
@@ -779,7 +750,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ReleaseItem(PickupItem item, bool withForce)
     {
-        if (isInSpaceMode) return; // Disable dropping in space mode
+        if (isInSpaceMode) return; 
 
         item.transform.SetParent(null);
         if (withForce)
@@ -813,7 +784,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDropReleased(InputAction.CallbackContext context)
     {
-        if (isInSpaceMode) return; // Disable dropping in space
+        if (isInSpaceMode) return; 
 
         isDropHeld = false;
         if (heldLeftItem != null && heldLeftItem == heldRightItem)
@@ -887,13 +858,10 @@ public class PlayerMovement : MonoBehaviour
         _controlsEnabled = enabled;
     }
 
-    // Returns the currently held item (prefers left, then right, then both)
     public GameObject GetHeldItem()
     {
-        // If both hands are holding the same item, return that
         if (heldLeftItem != null && heldLeftItem == heldRightItem)
             return heldLeftItem.gameObject;
-        // Otherwise, prefer left, then right
         if (heldLeftItem != null)
             return heldLeftItem.gameObject;
         if (heldRightItem != null)
@@ -901,10 +869,8 @@ public class PlayerMovement : MonoBehaviour
         return null;
     }
 
-    // Removes and destroys the currently held item
     public void RemoveHeldItem()
     {
-        // If both hands are holding the same item
         if (heldLeftItem != null && heldLeftItem == heldRightItem)
         {
             Destroy(heldLeftItem.gameObject);
@@ -924,7 +890,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private int seedCount = 0;
-    [SerializeField] private TextMeshProUGUI seedCountText; // Assign in Inspector
+    [SerializeField] private TextMeshProUGUI seedCountText;
 
     public void AddSeed()
     {
@@ -950,7 +916,7 @@ public class PlayerMovement : MonoBehaviour
             seedCountText.text = seedCount > 0 ? $"Seeds x{seedCount}" : "";
     }
 
-    [SerializeField] private GameObject seedPrefab; // Assign in Inspector
+    [SerializeField] private GameObject seedPrefab;
 
     public void DropSeed()
     {

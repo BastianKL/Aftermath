@@ -4,7 +4,7 @@ using TMPro;
 
 public class PickupHighlighter : MonoBehaviour
 {
-    public float maxDistance = 3f; // How far you can reach
+    public float maxDistance = 3f;
     private PickupItem lastHighlighted;
     public TextMeshProUGUI pickupHintText;
 

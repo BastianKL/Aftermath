@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    public PlayerMovement playerMovement; // Assign in Inspector
+    public PlayerMovement playerMovement; 
 
     public void SaveGame()
     {

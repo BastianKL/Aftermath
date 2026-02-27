@@ -27,11 +27,9 @@ public class MovingPlatformWaypoints : MonoBehaviour
             return;
         }
 
-        // Move to current waypoint
         Transform targetWaypoint = waypoints[currentWaypointIndex];
         transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
 
-        // Check if reached waypoint
         if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
         {
             waiting = true;
